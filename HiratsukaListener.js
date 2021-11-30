@@ -1,12 +1,11 @@
 // MAJOR DEPENDENCIES NEEDED: discord.js, node.js
-// RESOURCE DEPENDENCIES NEEDED: greets.js, embedBuilder.js
+// RESOURCE DEPENDENCIES NEEDED: greets.js, embedBuilder.js, quickUtils.js
 
 const Discord = require('discord.js');
 const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MESSAGES']});
 const greet = require('../utilities/greets.js')
 const quickUtils = require('../utilities/quickUtils.js')
 const embedBuilder = require('../utilities/embedBuilder.js')
-const mudaeStat = require('../utilities/mudaeStat.js')
 const Canvas = Discord.Canvas;
 
 
