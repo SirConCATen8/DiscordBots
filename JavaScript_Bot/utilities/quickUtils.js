@@ -1,5 +1,5 @@
 function status(message,client) {
-    const user="JavaScript (dev) listener is active. ".concat(client.user.username);
+    const user="JavaScript listener is active. ".concat(client.user.username);
     const uptime=client.uptime;
     const hours=parseInt(uptime/(1000*60*60)).toString()
     const mins=parseInt(uptime/(1000*60)%60).toString()
@@ -14,6 +14,6 @@ function memCount(message) {
     message.channel.send(output)
 }
 
-function brokenCommand() { return ('<a:Thisisfine:773821553888329778>') }
+function brokenCommand() { return ('Command is Broken') }
 
 module.exports = { status, memCount,brokenCommand };

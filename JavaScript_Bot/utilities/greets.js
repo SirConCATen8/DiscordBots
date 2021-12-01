@@ -1,13 +1,13 @@
 function WelcomeEmbed(member) {
     const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
     if (!channel) return;
-    const greetList = [`Yahello ${member}! Wait that's not right...`,`Is it love at first sight or is ${member} just the best?`,`Hey look, ${member} is finally here!`,`Thank you for gracing us with your presence, ${member}!`,`If tomorrow never comes, at least we can rest in peace knowing ${member} joined us.`];
+    const greetList = [`Yahello ${member}! Wait that's not right...`,`Is it love at first sight or is ${member} just the best?`,`Hey look, ${member} is finally here!`,`Thank you for gracing us with your presence, ${member}!`];
     const greetInd=Math.floor(Math.random() * greetList.length);
 	  const greet="".concat(greetList[greetInd]);
     channel.send(greet)
     const color=0x4BFF54;
     const insTitle="".concat("Welcome to ",member.guild.name,"!");
-    const insDesc="".concat("Please visit <#747127104046628885> and review the rules before making yourself look silly. If you want to add color to your name or access special channels, hit up <#783150501217828915>.");
+    const insDesc="".concat("Please visit \(insert rules channel ID here\) and review the rules before making yourself look silly. If you want to add color to your name or access special channels, hit up \(insert role select channel ID here\).");
     const insThumb="".concat(member.avatar);
     const imgList = ['https://i.imgur.com/Ntdg2yW.gif','https://i.imgur.com/4v1qRsI.gif','https://i.imgur.com/us6Nmie.gif'];
     const imgInd=Math.floor(Math.random() * imgList.length);
@@ -17,9 +17,9 @@ function WelcomeEmbed(member) {
 	      color: color,
 	      title: insTitle,
 		    description: insDesc,
-		    /*thumbnail: {
+		    /* thumbnail: {
 			    url: member.displayAvatarURL(),
-		    },*/
+		    }, */
 		    image: {
 			    url: imgurl,
 		    },
@@ -37,7 +37,7 @@ function GoodbyeEmbed(member) {
 	  const color=0x7547FF;
     const name ="".concat(member.user.username)
     const insTitle="".concat(`Goodbye ${name} :broken_heart:`);
-    const descList = [`Goodbye ${name}, we may miss you.`,`Goodbye ${name}, we hardly knew you.`,`${name}... Gone, but not yet forgotten.`,`All my homies hate ${name}`,`${name} has taken the eternal sleep.`];
+    const descList = [`Goodbye ${name}, we may miss you.`,`Goodbye ${name}, we hardly knew you.`,`${name}... Gone, but not yet forgotten.`];
     const descInd=Math.floor(Math.random() * descList.length);
     const desc="".concat(descList[descInd]);
     const imgList = ['https://media.discordapp.net/attachments/783140045007093800/783140139005378571/sensei_goodbye.png'];
