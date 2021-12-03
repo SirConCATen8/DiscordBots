@@ -1,4 +1,4 @@
-// MAJOR DEPENDENCIES NEEDED: discord.js, node.js
+// LIBRARY DEPENDENCIES NEEDED: discord.js, node.js
 // RESOURCE DEPENDENCIES NEEDED: greets.js, embedBuilder.js, quickUtils.js
 
 const Discord = require('discord.js');
@@ -8,31 +8,35 @@ const quickUtils = require('../utilities/quickUtils.js')
 const embedBuilder = require('../utilities/embedBuilder.js')
 const Canvas = Discord.Canvas;
 
-
+//Shows in log when client has logged in, useful for testing/debugging purposes
 client.once('ready', () => {
 	console.log('Ready!');
 });
 
+//Welcome embeds for new users
 client.on('guildMemberAdd',member => {
     greet.WelcomeEmbed(member)
 })
 
+//Goodbye embeds for left users
 client.on('guildMemberRemove',(member) => {
     greet.GoodbyeEmbed(member)
 })
 
 client.on('message', message => {
     
-    /* These should be in a pile of easy commands somewhere, not inside the listener */
-    
+    //Display status of Discord bot
     if(message.content == 's.status') {
         quickUtils.status(message,client);
     }
-    
+	
+    //Display membercount of server this message was sent in
     if(message.content == 's.membercount') {
         quickUtils.memCount(message);
     }
     
+    /* These should be in a pile of easy commands somewhere, not inside the listener */
+    //Shows an embed of the user's avatar in chat
     if(message.content.includes('s.avatar')) {
         const mention = message.mentions.members.first();
         if(mention != undefined) {
@@ -52,6 +56,8 @@ client.on('message', message => {
             message.reply({ embed: avatarEmbed });
         }
     }
+	
+    //Testing embeds
     if(message.content == 's.embedt') {
         const objs = '{"getImage":"https://i.imgur.com/Ntdg2yW.gif","getColor":"0x0099ff","getTitle":"Test Embed","getDesc":"Just testing the modular embeds my dudes. :ok_hand:"}';
         const testEmbed = embedBuilder.EmbedBuilder(objs)
